@@ -1,5 +1,4 @@
 up:
-	npm version patch --no-git-tag-version; \
 	git add .; \
 	VERSION=$$(python -c "import tomli; print(tomli.load(open('pyproject.toml','rb'))['project']['version'])"); \
 	read -p "Mensagem do release: $$VERSION " m; \
@@ -8,7 +7,6 @@ up:
 	python -m build
 	twine upload dist/*
 upv:
-	npm version patch --no-git-tag-version; \
 	git add .; \
 	VERSION=$$(python -c "import tomli; print(tomli.load(open('pyproject.toml','rb'))['project']['version'])"); \
 	read -p "Mensagem do release: " m; \
